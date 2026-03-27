@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Reverse Coding — User Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      line-height: 1.65;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #2874b5;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 0.3em;
+    }
+
+    h2 {
+      color: #b52828;
+      margin-top: 1.6em;
+    }
+
+    strong {
+      color: #ff7b72;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      background: #161b22;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 6px;
+      border: 1px solid #30363d;
+      overflow-x: auto;
+    }
+
+    .box {
+      border: 1px solid #30363d;
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+
+    .warning {
+      border: 1px solid #ff7b72;
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.5em 0;
+      color: #ff7b72;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #30363d;
+      margin: 2em 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 style="text-align:center;">
+Reverse Coding — ExeBit <br>
+<strong>User Guide</strong>
+</h1>
+
+<center><b>Read carefully before the contest</b></center>
+
+<hr>
+
+<div class="box">
+<h2>Quick Overview</h2>
+<ul>
+<li>You will connect to a <strong>remote reverse coding server</strong>.</li>
+<li>The server provides <strong>input-output behavior</strong>.</li>
+<li>Your task is to <strong>deduce the hidden logic</strong>.</li>
+<li>Implement the solution and submit on <strong>Codeforces</strong>.</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>§0 Before You Begin</h2>
+<ul>
+<li>Ensure you have a working terminal and internet connection.</li>
+<li>Login to your <strong>Codeforces account</strong>.</li>
+<li>Keep the contest page open.</li>
+<li>Join the <a href="https://chat.whatsapp.com/BtEseWqJ5gj2c2hWaR2RiJ?mode=gi_t">WhatsApp Group</a> for queries and updates.
+</li>
+<li>Server IP and port will be shared during the contest.</li>
+</ul>
+
+<hr>
+
+<h2>§1 Connecting to Server</h2>
+
+<h3>Linux / Mac (Recommended)</h3>
+<pre><code>nc &lt;ip&gt; &lt;port&gt;</code></pre>
+
+<p>If <strong>Mac netcat</strong> gives issues on your system, use the <strong>Google Colab</strong> option below.</p>
+
+<h3>Mac Alternative (Google Colab)</h3>
+<ol>
+<li>Open <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a> and create a new notebook.</li>
+<li>Paste and run these cells in order.</li>
+</ol>
+
+<p><strong>Cell 1 — Install netcat</strong></p>
+<pre><code> # Run this cell only once
+!apt-get update -y
+!apt-get install -y netcat-openbsd</code></pre>
+
+<p><strong>Cell 2 — Connect to contest server</strong></p>
+<pre><code>!nc &lt;ip&gt; &lt;port&gt;</code></pre>
+
+<p>Replace <code>&lt;ip&gt;</code> and <code>&lt;port&gt;</code> with values shared during the contest.</p>
+
+<h3>Windows (Telnet Setup)</h3>
+
+<ol>
+<li>Open Command Prompt <strong>as Administrator</strong></li>
+<li>Enable Telnet:</li>
+</ol>
+
+<pre><code>dism /online /Enable-Feature /FeatureName:TelnetClient</code></pre>
+
+<ol start="3">
+<li>Verify installation:</li>
+</ol>
+
+<pre><code>telnet</code></pre>
+
+<ol start="4">
+<li>Connect to server:</li>
+</ol>
+
+<pre><code>telnet &lt;ip&gt; &lt;port&gt;</code></pre>
+
+<p>Example:</p>
+<pre><code>telnet 35.192.44.62 6060</code></pre>
+The actual IP and port will be provided during the contest.
+<hr>
+
+<h2>§2 Login Process</h2>
+
+<p>After connecting, you will be prompted:</p>
+
+<pre>
+<code>
+Enter name:
+Enter Codeforces username:
+Enter password:
+</code></pre>
+
+<ul>
+<li>Enter your <strong>name</strong></li>
+<li>Enter your <strong>Codeforces handle</strong></li>
+<li>Enter the password shared during contest</li>
+</ul>
+
+<p>On successful login, your session begins.</p>
+
+<hr>
+
+<h2>§3 Server Interface</h2>
+
+<pre><code>
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+| Welcome to Reverse coding competition Exebit-2026 |
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Instructions:
+ - Select a question number (1-9) to view it.
+ - While viewing a question: By default it stays in this question, press -1 to return to question selection.
+</code></pre>
+
+<ul>
+<li>Select a problem (e.g., <code>1</code>)</li>
+<li>You will see input format instructions</li>
+</ul>
+
+<hr>
+
+<h2>§4 How to Solve</h2>
+
+<ul>
+<li>Provide custom inputs to the server</li>
+<li>Observe corresponding outputs</li>
+<li>Identify patterns and logic</li>
+<li>Test multiple cases before coding</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>Input:
+1 2 3
+
+Output:
+6
+</code></pre>
+
+<hr>
+
+<h2>§5 Submission</h2>
+
+<ul>
+<li>Write your solution in your preferred language</li>
+<li>Submit it on <strong>Codeforces</strong></li>
+<li>Follow exact input/output format specified in the problem</li>
+</ul>
+
+<div class="warning">
+<strong>⚠️ Important:</strong> The server does NOT accept submissions. It is only for discovering problem logic.
+</div>
+
+<hr>
+
+<h2>§6 Important Notes</h2>
+
+<ul>
+<li>Each connection = one session</li>
+<li>If you exit, you must reconnect</li>
+<li>Your Codeforces handle is used for identification</li>
+<li>Avoid random brute force — think patterns</li>
+</ul>
+
+</body>
+</html>
